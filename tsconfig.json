@@ -7,6 +7,12 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "./src/*"
+      ]
+    },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "plugins": [
@@ -20,4 +26,5 @@
       "module": "CommonJS",
     }
   },
+  // "include": ["./config/jest/jest-setup.ts", "./src/**/*"],
 }
