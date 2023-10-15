@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-export type ThemeButton = 'clear';
+export type ThemeButton = 'clear' | 'outline';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -19,6 +19,7 @@ export const Button = (props: PropsWithChildren<ButtonProps>) => {
             className={classNames(cls.Button, {}, [className, cls[theme]])}
             {...otherProps}
         >
+            {' '}
             {children}
         </button>
     );

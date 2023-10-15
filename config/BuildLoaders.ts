@@ -1,20 +1,13 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RuleSetRule } from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
+import { buildBabelLoader } from './loaders/BuildBabelLoader';
 import { BuildOptions } from './types/config';
+import { buildCssLoader } from './loaders/BuildCssLoader';
+import { buildSvgLoader } from './loaders/BuildSvgLoader';
 
 export function BuildLoaders(options: BuildOptions): RuleSetRule[] {
     return [
-        {
-            test: /\.(js|jsx|tsx)$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env'],
-                },
-            },
-        },
+        buildBabelLoader(),
         {
             test: /\.tsx?$/,
             loader: 'ts-loader',
@@ -25,31 +18,8 @@ export function BuildLoaders(options: BuildOptions): RuleSetRule[] {
                 }),
             },
         },
-        {
-            test: /\.s[ac]ss$/i,
-            use: [
-                // Creates `style` nodes from JS strings
-                options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-                // Translates CSS into CommonJS
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: {
-                            auto: true,
-                            localIdentName: options.isDev
-                                ? '[path][name]__[local]'
-                                : '[hash:base64:5]',
-                        },
-                    },
-                },
-                // Compiles Sass to CSS
-                'sass-loader',
-            ],
-        },
-        {
-            test: /\.svg$/,
-            use: ['@svgr/webpack'],
-        },
+        buildCssLoader(options.isDev),
+        buildSvgLoader(),
         {
             test: /\.(png|jpe?g|gif)$/i,
             use: [

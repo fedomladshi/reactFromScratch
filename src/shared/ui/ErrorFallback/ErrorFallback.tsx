@@ -8,7 +8,7 @@ export const ErrorFallback = () => {
     return (
         <div>
             {t('error-boundary')}
-            <button onClick={resetBoundary}>Try again</button>
+            <button type="button" onClick={resetBoundary}>{t('try-again')}</button>
         </div>
     );
 };

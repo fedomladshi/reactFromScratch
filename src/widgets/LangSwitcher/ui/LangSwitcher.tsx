@@ -1,4 +1,4 @@
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';

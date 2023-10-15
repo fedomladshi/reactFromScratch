@@ -4,19 +4,12 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
+    extends: ['plugin:react/recommended',
         'plugin:i18next/recommended',
         'plugin:jsonc/recommended-with-json',
         'airbnb',
-    ],
+        'plugin:storybook/recommended'],
     parser: '@typescript-eslint/parser',
-    overrides: [
-        {
-            files: ['*.json', '*.json5', '*.jsonc'],
-            parser: 'jsonc-eslint-parser',
-        },
-    ],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
@@ -27,7 +20,6 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
-        'i18next',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -48,9 +40,21 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'linebreak-style': 'off',
         'max-len': ['error', { ignoreComments: true, code: 150 }],
-        'i18next/no-literal-string': [0, { extensions: ['test.ts', 'test.tsx'] }],
+        // 'i18next/no-literal-string': 'off',
     },
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+        {
+            files: ['*.json', '*.json5', '*.jsonc'],
+            parser: 'jsonc-eslint-parser',
+        },
+    ],
 };

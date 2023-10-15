@@ -4,5 +4,6 @@
   "main": "main",
   "about": "about",
   "page-not-found": "Page not found",
-  "error-boundary": "Oups, something went wrong"
+  "error-boundary": "Oups, something went wrong",
+  "try-again": "Try again"
 }
