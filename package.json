@@ -64,7 +64,6 @@
     "jest-environment-jsdom": "^29.6.1",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.7.6",
-    "react-refresh-typescript": "^2.0.9",
     "sass": "^1.62.1",
     "sass-loader": "^13.3.0",
     "storybook": "^7.4.6",
@@ -95,14 +94,14 @@
   "loki": {
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }
