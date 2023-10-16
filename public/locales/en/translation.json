@@ -1,8 +1,9 @@
 {
-  "translate": "перевести",
+  "language": "Russian",
+  "language-short": "Ru",
   "toggle": "toggle",
-  "main": "main",
-  "about": "about",
+  "main": "Main",
+  "about": "About us",
   "page-not-found": "Page not found",
   "error-boundary": "Oups, something went wrong",
   "try-again": "Try again"

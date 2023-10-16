@@ -1,7 +1,8 @@
 {
-  "translate": "translate",
+  "language": "Английский",
+  "language-short": "Англ",
   "toggle": "переключить",
-  "main": "главная",
+  "main": "Главная",
   "about": "О сатйе",
   "page-not-found": "Страница не найдена",
   "error-boundary": "Упс, что-то пошло не так",
