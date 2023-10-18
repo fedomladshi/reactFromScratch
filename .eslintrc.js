@@ -4,7 +4,8 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['plugin:react/recommended',
+    extends: [
+        'plugin:react/recommended',
         'plugin:i18next/recommended',
         'plugin:jsonc/recommended-with-json',
         'airbnb',
@@ -20,6 +21,7 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
+        'react-hooks',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -41,6 +43,10 @@ module.exports = {
         'linebreak-style': 'off',
         'max-len': ['error', { ignoreComments: true, code: 150 }],
         // 'i18next/no-literal-string': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     },
     globals: {
         __IS_DEV__: true,

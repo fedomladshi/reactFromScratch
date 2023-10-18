@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { routerDecorator } from 'shared/config/storybook/RouterDecorator/routerDecorator';
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
 import { Theme } from 'shared/contexts/theme';
 
@@ -8,6 +9,7 @@ const meta = {
     title: 'widgets/Sidebar',
     component: Sidebar,
     tags: ['autodocs'],
+    decorators: [routerDecorator()],
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;
