@@ -1,8 +1,9 @@
 {
-   "extends": "stylelint-config-standard-scss",
+   "extends": "stylelint-config-sass-guidelines",
    "rules": {
       "indentation": [4],
       "selector-class-pattern": null,
       "block-no-empty": null
-   }
+   },
+   "ignoreFiles": ["public/*", "dist/*", "node_modules/*"]
 }

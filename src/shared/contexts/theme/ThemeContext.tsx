@@ -1,5 +1,5 @@
 import {
-    ReactNode, createContext, useMemo, useState,
+    ReactNode, createContext, useMemo, useState, PropsWithChildren,
 } from 'react';
 
 export enum Theme {
@@ -26,12 +26,16 @@ export const getLocalStorageTheme = () => {
 
 const defaultTheme = getLocalStorageTheme() as Theme || Theme.LIGHT;
 
-interface IThemeProvider {
-children: ReactNode
+interface IThemeProviderProps {
+initialTheme?: Theme;
 }
 
-const ThemeProvider = ({ children }: IThemeProvider) => {
-    const [theme, setTheme] = useState<Theme>(defaultTheme);
+const ThemeProvider = (props: PropsWithChildren<IThemeProviderProps>) => {
+    const {
+        children,
+        initialTheme,
+    } = props;
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
     const defaulrProps = useMemo(() => ({ theme, setTheme }), [theme]);
 
     return (

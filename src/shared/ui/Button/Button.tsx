@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-export type ButtonTheme = 'clear' | 'outline' | 'background' | 'backgroundInverted';
+export type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'background' | 'backgroundInverted';
 
 export enum ButtonSize {
     M = 'size_m',
