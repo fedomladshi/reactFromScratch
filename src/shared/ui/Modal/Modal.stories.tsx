@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
-import { Theme } from 'shared/contexts/theme';
+import { AppTheme } from 'shared/contexts/theme';
 import 'app/styles/index.scss';
 
 import { Modal } from './Modal';
@@ -28,4 +28,4 @@ export const DarkTheme: Story = {
     },
 };
 
-DarkTheme.decorators = [themeDecorator(Theme.DARK)];
+DarkTheme.decorators = [themeDecorator(AppTheme.DARK)];

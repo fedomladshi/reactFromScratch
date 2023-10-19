@@ -1,21 +1,21 @@
 import {
-    ReactNode, createContext, useMemo, useState, PropsWithChildren,
+    createContext, useMemo, useState, PropsWithChildren,
 } from 'react';
 
-export enum Theme {
-     LIGHT = 'light',
-     DARK = 'dark',
+export enum AppTheme {
+     LIGHT = 'app_light_theme',
+     DARK = 'app_dark_theme',
 }
 
 interface IThemeContext {
-     theme?: Theme;
-     setTheme?: (theme: Theme) => void;
+     theme?: AppTheme;
+     setTheme?: (theme: AppTheme) => void;
 }
 export const ThemeContext = createContext<IThemeContext>({});
 
 export const LOCAL_STORAGE_THEME = 'theme';
 
-export const setLocalStorageTheme = (theme: Theme) => {
+export const setLocalStorageTheme = (theme: AppTheme) => {
     localStorage.setItem(LOCAL_STORAGE_THEME, theme);
 };
 
@@ -24,10 +24,10 @@ export const getLocalStorageTheme = () => {
     return theme;
 };
 
-const defaultTheme = getLocalStorageTheme() as Theme || Theme.LIGHT;
+const defaultTheme = getLocalStorageTheme() as AppTheme || AppTheme.LIGHT;
 
 interface IThemeProviderProps {
-initialTheme?: Theme;
+initialTheme?: AppTheme;
 }
 
 const ThemeProvider = (props: PropsWithChildren<IThemeProviderProps>) => {
@@ -35,7 +35,7 @@ const ThemeProvider = (props: PropsWithChildren<IThemeProviderProps>) => {
         children,
         initialTheme,
     } = props;
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+    const [theme, setTheme] = useState<AppTheme>(initialTheme || defaultTheme);
     const defaulrProps = useMemo(() => ({ theme, setTheme }), [theme]);
 
     return (

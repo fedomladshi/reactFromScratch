@@ -1,6 +1,6 @@
-import { Theme } from './ThemeContext';
+import { AppTheme } from './ThemeContext';
 import { useTheme } from './useTheme';
 
 export {
-    Theme, useTheme,
+    AppTheme, useTheme,
 };

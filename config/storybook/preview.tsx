@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
 import 'app/styles/index.scss';
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
-import { Theme } from 'shared/contexts/theme';
+import { AppTheme } from 'shared/contexts/theme';
 import i18n from './i18next';
 
 const preview: Preview = {
@@ -24,7 +24,7 @@ const preview: Preview = {
     },
     decorators: [
         // i18nDecorator(),
-        themeDecorator(Theme.LIGHT),
+        themeDecorator(AppTheme.LIGHT),
     ],
 };
 

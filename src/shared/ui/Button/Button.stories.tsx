@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
-import { Theme } from 'shared/contexts/theme';
+import { AppTheme } from 'shared/contexts/theme';
 
 import { Button, ButtonSize } from './Button';
 
@@ -27,7 +27,7 @@ export const ClearDark: Story = {
     },
 };
 
-ClearDark.decorators = [themeDecorator(Theme.DARK)];
+ClearDark.decorators = [themeDecorator(AppTheme.DARK)];
 
 export const ClearInvertedLight: Story = {
     args: {
@@ -43,7 +43,7 @@ export const ClearInvertedDark: Story = {
     },
 };
 
-ClearInvertedDark.decorators = [themeDecorator(Theme.DARK)];
+ClearInvertedDark.decorators = [themeDecorator(AppTheme.DARK)];
 
 export const OutlineLight: Story = {
     args: {
@@ -59,7 +59,7 @@ export const OutlineDark: Story = {
     },
 };
 
-OutlineDark.decorators = [themeDecorator(Theme.DARK)];
+OutlineDark.decorators = [themeDecorator(AppTheme.DARK)];
 
 export const BackgroundTheme: Story = {
     args: {

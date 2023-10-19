@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { errorBoundaryDecorator } from 'shared/config/storybook/ErrorBoundaryDecorator/errorBoundaryDecorator';
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
-import { Theme } from 'shared/contexts/theme';
+import { AppTheme } from 'shared/contexts/theme';
 
 import { ErrorFallback } from './ErrorFallback';
 
@@ -27,4 +27,4 @@ export const ErrorFallbackDark: Story = {
     },
 };
 
-ErrorFallbackDark.decorators = [themeDecorator(Theme.DARK)];
+ErrorFallbackDark.decorators = [themeDecorator(AppTheme.DARK)];
