@@ -7,5 +7,7 @@
   "page-not-found": "Страница не найдена",
   "error-boundary": "Упс, что-то пошло не так",
   "try-again": "Попробовать ещё раз",
-  "login": "Войти"
+  "login": "Войти",
+  "input-username": "Введите Имя",
+  "input-password": "Введите пароль"
 }

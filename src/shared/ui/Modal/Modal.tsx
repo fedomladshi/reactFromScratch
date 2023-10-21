@@ -16,7 +16,10 @@ const ANIMATION_DELAY = 300;
 
 export const Modal = (props: PropsWithChildren<ModalProps>) => {
     const {
-        className, children, isOpen, onClose,
+        className,
+        children,
+        isOpen,
+        onClose,
     } = props;
     const { theme } = useTheme();
     const [isClosing, setIsClosing] = useState(false);
@@ -53,7 +56,6 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
         if (isOpen) {
             window.addEventListener('keydown', onKeyDown);
         }
-
         return () => {
             clearTimeout(timerRef.current);
             window.removeEventListener('keydown', onKeyDown);

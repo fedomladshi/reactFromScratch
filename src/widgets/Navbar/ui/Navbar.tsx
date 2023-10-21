@@ -1,3 +1,4 @@
+import { LoginModal } from 'features/AutthByUserName';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -14,7 +15,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     const [isAuthOpen, setIsAuthOpen] = useState(false);
 
-    const onToggleModal = useCallback(() => {
+    const handleModalToggle = useCallback(() => {
         setIsAuthOpen((i) => !i);
     }, []);
 
@@ -23,14 +24,11 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Button
                 theme="clearInverted"
                 className={cls.links}
-                onClick={onToggleModal}
+                onClick={handleModalToggle}
             >
                 {t('login')}
             </Button>
-            {/* eslint-disable-next-line */}
-            <Modal isOpen={isAuthOpen} onClose={onToggleModal}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci fugiat dignissimos inventore.
-            </Modal>
+            <LoginModal isOpen={isAuthOpen} onClose={handleModalToggle} />
         </div>
     );
 };

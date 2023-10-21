@@ -9,7 +9,6 @@ import AppRouter from './router/ui/AppRouter';
 
 const App = () => {
     const { theme } = useTheme();
-    console.log('t', theme);
 
     return (
         <div className={classNames('app', {}, [theme])}>

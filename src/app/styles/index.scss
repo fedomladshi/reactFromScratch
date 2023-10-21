@@ -3,9 +3,12 @@
 @import 'themes/dark';
 @import 'themes/normal';
 
+:root {
+    font: var(--font-m);
+}
+
 .app {
     color: var(--primary-color);
-    font-size: font var(--font-m);
     background: var(--bg-color);
     min-height: 100vh;
 }

@@ -7,5 +7,7 @@
   "page-not-found": "Page not found",
   "error-boundary": "Oups, something went wrong",
   "try-again": "Try again",
-  "login": "Login"
+  "login": "Login",
+  "input-username": "Input username",
+  "input-password": "Input password"
 }
