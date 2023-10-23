@@ -1,4 +1,4 @@
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../types/config';
 import { buildCssLoader } from '../loaders/BuildCssLoader';
@@ -11,10 +11,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
         html: '',
         index: '',
         output: '',
-        src: path.resolve(__dirname, '..', '..', 'src'),
+        src: path.resolve(__dirname, '../../src', '..', 'src'),
     };
 
-    config.resolve.modules.push(paths.src);
+    config.resolve.modules = [
+        paths.src,
+        'node_modules',
+    ];
     config.resolve.extensions.push('ts', 'tsx');
 
     // eslint-disable-next-line no-param-reassign
@@ -29,6 +32,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config.module.rules.push(buildCssLoader(true));
     config.module.rules.push(buildBabelLoader());
     config.module.rules.push(buildSvgLoader());
+
+    config.plugins.push(new DefinePlugin({
+        __IS_DEV__: true,
+    }));
 
     return config;
 };

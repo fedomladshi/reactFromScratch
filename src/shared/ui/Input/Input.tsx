@@ -21,25 +21,20 @@ export const Input = memo((props: InputProps) => {
         onChange,
         ...otherProps
     } = props;
-
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
-        setCaretPosition(e.target.value.length);
     };
 
     const onBlur = () => {
         setIsFocused(false);
     };
 
-    const onFocus = () => {
-        setIsFocused(true);
-    };
-
     const onSelect = (event: SyntheticEvent<HTMLDivElement, Event>) => {
         const target = event.target as HTMLInputElement;
+        setIsFocused(true);
         setCaretPosition(target.selectionStart || 0);
     };
 
@@ -56,7 +51,6 @@ export const Input = memo((props: InputProps) => {
                     className={cls.input}
                     type={type}
                     onChange={handleChange}
-                    onFocus={onFocus}
                     onBlur={onBlur}
                     onSelect={onSelect}
                     {...otherProps}

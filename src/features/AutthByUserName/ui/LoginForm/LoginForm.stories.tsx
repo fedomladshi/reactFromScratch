@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { storeDecorator } from 'shared/config/storybook/StoreDecorator/storeDecorator';
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
 import { AppTheme } from 'shared/contexts/theme';
 
@@ -18,9 +19,27 @@ export const LoginFormLight: Story = {
     },
 };
 
-export const InpuLoginFormDark: Story = {
+LoginFormLight.decorators = [storeDecorator({ loginForm: { password: '122', username: 'admin' } })];
+
+export const LoginFormLoadingLight: Story = {
     args: {
     },
 };
 
-InpuLoginFormDark.decorators = [themeDecorator(AppTheme.DARK)];
+LoginFormLoadingLight.decorators = [
+    storeDecorator({
+        loginForm: {
+            password: '122', username: 'admin', isLoading: true,
+        },
+    }),
+];
+
+export const LoginFormErrorDark: Story = {
+    args: {
+    },
+};
+
+LoginFormErrorDark.decorators = [
+    themeDecorator(AppTheme.DARK),
+    storeDecorator({ loginForm: { error: 'ERROR', password: '122', username: 'admin' } }),
+];

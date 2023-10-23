@@ -9,5 +9,8 @@
   "try-again": "Try again",
   "login": "Login",
   "input-username": "Input username",
-  "input-password": "Input password"
+  "input-password": "Input password",
+  "authorization-form": "Authorization form",
+  "incorrect-login-creds": "You entered incorrect login data",
+  "logout": "Logout"
 }
