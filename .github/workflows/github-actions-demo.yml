@@ -34,7 +34,5 @@ jobs:
         if: always()
       - name: build storybook
         run: npm run storybook:build
-      - name: Prepare docker
-        run: docker pull yukinying/chrome-headless-browser-stable:100.0.4896.127
       - name: screenshot testing
         run: npm run test:ui:ci

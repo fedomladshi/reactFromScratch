@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import webpackDevServer from 'webpack-dev-server';
 import { BuildOptions } from './types/config';
 import { BuildResolvers } from './BuildResolvers';
 import { BuildLoaders } from './BuildLoaders';
@@ -24,10 +23,5 @@ export function buildWebpackConfig(options : BuildOptions): webpack.Configuratio
         plugins: BuildPlugins(options),
         devServer: isDev ? BuildDevServer(options) : undefined,
         devtool: isDev ? 'inline-source-map' : undefined,
-        optimization: {
-            splitChunks: {
-                chunks: 'all',
-            },
-        },
     };
 }

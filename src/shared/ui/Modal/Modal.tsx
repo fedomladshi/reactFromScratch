@@ -9,6 +9,7 @@ import cls from './Modal.module.scss';
 interface ModalProps {
   className?: string;
   isOpen?: boolean;
+  lazy?: boolean;
   onClose?: () => void;
 }
 
@@ -19,10 +20,12 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
         className,
         children,
         isOpen,
+        lazy = false,
         onClose,
     } = props;
     const { theme } = useTheme();
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const mods: Record<string, boolean> = {
@@ -54,6 +57,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
 
     useEffect(() => {
         if (isOpen) {
+            setIsMounted(true);
             window.addEventListener('keydown', onKeyDown);
         }
         return () => {
@@ -61,6 +65,10 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>

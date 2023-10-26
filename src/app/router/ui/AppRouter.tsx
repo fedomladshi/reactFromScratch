@@ -7,19 +7,19 @@ import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 
 const AppRouter = () => (
     <div className="page-wrapper">
-        <ErrorBoundary
-            FallbackComponent={ErrorFallback}
-            onReset={() => window.location.reload()}
-        >
-            <Suspense fallback={<PageLoader />}>
+        <Suspense fallback={<PageLoader />}>
+            <ErrorBoundary
+                FallbackComponent={ErrorFallback}
+                onReset={() => window.location.reload()}
+            >
                 <Routes>
                     {
                         routeConfig
                             .map(({ path, element }) => <Route path={path} element={element} />)
                     }
                 </Routes>
-            </Suspense>
-        </ErrorBoundary>
+            </ErrorBoundary>
+        </Suspense>
     </div>
 );
 

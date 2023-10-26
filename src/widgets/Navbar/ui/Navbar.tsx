@@ -5,7 +5,6 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -27,7 +26,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     };
 
-    if (authData) {
+    if (authData?.username) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
                 <Button
@@ -37,7 +36,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                 >
                     {t('logout')}
                 </Button>
-                <LoginModal isOpen={isAuthOpen} onClose={handleModalToggle} />
             </div>
         );
     }
@@ -50,7 +48,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('login')}
             </Button>
-            <LoginModal isOpen={isAuthOpen} onClose={handleModalToggle} />
+            {isAuthOpen && <LoginModal isOpen={isAuthOpen} onClose={handleModalToggle} />}
         </div>
     );
 };

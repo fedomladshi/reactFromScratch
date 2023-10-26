@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import './ErrorFallback.module.scss';
 import { useErrorBoundary } from 'react-error-boundary';
+import cls from './ErrorFallback.module.scss';
 
 export const ErrorFallback = () => {
     const { t } = useTranslation();
     const { resetBoundary } = useErrorBoundary();
     return (
-        <div>
+        <div className={cls.ErrorFallback}>
             {t('error-boundary')}
             <button type="button" onClick={resetBoundary}>{t('try-again')}</button>
         </div>

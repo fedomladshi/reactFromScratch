@@ -1,8 +1,10 @@
 import { userActions } from 'entities/User';
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { useTheme } from 'shared/contexts/theme';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ErrorFallback } from 'shared/ui/ErrorFallback/ErrorFallback';
 
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
@@ -19,13 +21,17 @@ const App = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="">
+            <ErrorBoundary
+                FallbackComponent={ErrorFallback}
+                onReset={() => window.location.reload()}
+            >
                 <Navbar />
+
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />
                 </div>
-            </Suspense>
+            </ErrorBoundary>
         </div>
     );
 };

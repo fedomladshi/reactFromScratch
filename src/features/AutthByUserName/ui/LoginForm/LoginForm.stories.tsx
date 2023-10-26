@@ -3,7 +3,7 @@ import { storeDecorator } from 'shared/config/storybook/StoreDecorator/storeDeco
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
 import { AppTheme } from 'shared/contexts/theme';
 
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 
 const meta = {
     title: 'features/LoginForm',

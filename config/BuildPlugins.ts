@@ -1,5 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import {
     DefinePlugin, HotModuleReplacementPlugin, ProgressPlugin, WebpackPluginInstance,
@@ -13,9 +14,10 @@ export function BuildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-
     ].concat(isDev
-        ? [new HotModuleReplacementPlugin()]
+        ? [new HotModuleReplacementPlugin(), new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+        })]
         : [new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
