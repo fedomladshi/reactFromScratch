@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react';
 
 import cls from './AppLink.module.scss';
 
-type AppLinkTheme = 'inverted' | 'primary';
+export type AppLinkTheme = 'inverted' | 'primary';
 
 interface AppLinkProps extends LinkProps {
   className?: string;

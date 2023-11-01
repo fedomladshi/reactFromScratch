@@ -21,7 +21,7 @@ export const useDynamicReducerLoader = (reducers: ReducersList, removeAfterUnmou
         return () => {
             if (removeAfterUnmount) {
                 data.forEach(([key]) => {
-                    store.reducerManager.remove('loginForm');
+                    store.reducerManager.remove(key);
                     store.dispatch({ type: `@DESTROY DYNAMIC ${key} reducer` });
                 });
             }

@@ -12,5 +12,6 @@
   "input-password": "Input password",
   "authorization-form": "Authorization form",
   "incorrect-login-creds": "You entered incorrect login data",
-  "logout": "Logout"
+  "logout": "Logout",
+  "profile-page": "Profile"
 }

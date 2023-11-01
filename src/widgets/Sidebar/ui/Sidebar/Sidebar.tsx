@@ -1,20 +1,19 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize } from 'shared/ui/Button/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { useTranslation } from 'react-i18next';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { paths } from 'shared/config/routeConfig/routeConfig';
-import AboutIcon from 'shared/assets/icons/about-us.svg';
-import MainIcon from 'shared/assets/icons/home.svg';
+
+import { sidebarItemsList } from 'widgets/Sidebar/model/items';
 import cls from './Sidebar.module.scss';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string
 }
 
-export function Sidebar({ className }: SidebarProps) {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const { t } = useTranslation();
     const [collapsed, setCollapsed] = useState(false);
 
@@ -28,28 +27,7 @@ export function Sidebar({ className }: SidebarProps) {
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <div className={cls.items}>
-                <AppLink
-                    theme="inverted"
-                    to={paths.main}
-                    className={cls.item}
-                >
-                    <MainIcon className={cls.icon} />
-                    <span className={cls.link}>
-                        {t('main')}
-                    </span>
-                </AppLink>
-                <div>
-                    <AppLink
-                        theme="inverted"
-                        to={paths.about}
-                        className={cls.item}
-                    >
-                        <AboutIcon className={cls.icon} />
-                        <span className={cls.link}>
-                            {t('about')}
-                        </span>
-                    </AppLink>
-                </div>
+                {sidebarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />)}
             </div>
             <Button
                 data-testid="sidebar-toggle"
@@ -67,4 +45,4 @@ export function Sidebar({ className }: SidebarProps) {
             </div>
         </div>
     );
-}
+});

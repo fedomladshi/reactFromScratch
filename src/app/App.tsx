@@ -3,12 +3,12 @@ import { useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { useTheme } from 'shared/contexts/theme';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ErrorFallback } from 'shared/ui/ErrorFallback/ErrorFallback';
 
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useAppDispatch } from './hooks/redux';
 import AppRouter from './router/ui/AppRouter';
 
 const App = () => {
