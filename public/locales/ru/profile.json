@@ -1,3 +1,12 @@
 {
-  "profile-page": "Профиль"
+    "edit": "Редактировать",
+    "cancel": "Отменить",
+    "first-placeholder": "Ваше Имя",
+    "secondname-placeholder": "Ваша Фамилия",
+    "age-placeholder": "Ваш возраст",
+    "currency-placeholder": "Ваша валюта",
+    "avatar-placeholder": "Ваш аватар",
+    "username-placeholder": "Ваш никнейм",
+    "profile": "Профиль",
+    "save": "Сохранить"
 }

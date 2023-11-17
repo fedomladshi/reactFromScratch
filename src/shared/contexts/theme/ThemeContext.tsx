@@ -36,10 +36,10 @@ const ThemeProvider = (props: PropsWithChildren<IThemeProviderProps>) => {
         initialTheme,
     } = props;
     const [theme, setTheme] = useState<AppTheme>(initialTheme || defaultTheme);
-    const defaulrProps = useMemo(() => ({ theme, setTheme }), [theme]);
+    const defaultProps = useMemo(() => ({ theme, setTheme }), [theme]);
 
     return (
-        <ThemeContext.Provider value={defaulrProps}>
+        <ThemeContext.Provider value={defaultProps}>
             {children}
         </ThemeContext.Provider>
     );

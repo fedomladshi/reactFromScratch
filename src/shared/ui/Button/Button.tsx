@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, memo, PropsWithChildren } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-export type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'background' | 'backgroundInverted';
+export type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'outlineRed' | 'background' | 'backgroundInverted';
 
 export enum ButtonSize {
     M = 'size_m',
@@ -30,7 +30,14 @@ export const Button = memo((props: PropsWithChildren<ButtonProps>) => {
     return (
         <button
             type="button"
-            className={classNames(cls.Button, { [cls.square]: square, [cls.disabled]: otherProps.disabled }, [className, cls[theme], cls[size]])}
+            className={classNames(
+                cls.Button,
+                {
+                    [cls.square]: square,
+                    [cls.disabled]: otherProps.disabled,
+                },
+                [className, cls[theme], cls[size]],
+            )}
             {...otherProps}
         >
             {' '}

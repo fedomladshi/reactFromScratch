@@ -7,12 +7,13 @@ import {
 } from 'webpack';
 import { BuildOptions } from './types/config';
 
-export function BuildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
+export function BuildPlugins({ paths, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({ template: paths.html }),
         new ProgressPlugin(),
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ].concat(isDev
         ? [new HotModuleReplacementPlugin(), new BundleAnalyzerPlugin({

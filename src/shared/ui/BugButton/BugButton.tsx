@@ -13,7 +13,7 @@ interface BugButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const BugButton = (props: PropsWithChildren<BugButtonProps>) => {
     const {
-        children, className, theme = 'clear',
+        children,
     } = props;
 
     const [hasError, setHasError] = useState(false);

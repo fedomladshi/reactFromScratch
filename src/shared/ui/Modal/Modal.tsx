@@ -2,7 +2,7 @@ import {
     MouseEvent, PropsWithChildren, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { useTheme } from 'shared/contexts/theme';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Modes } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -28,7 +28,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const mods: Record<string, boolean> = {
+    const mods: Modes = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };

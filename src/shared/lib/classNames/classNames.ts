@@ -1,7 +1,9 @@
+export type Modes = Record<string, boolean | string | undefined>;
+
 export const classNames = (
     styles: string,
-    modes: Record<string, boolean | string> = {},
-    additional: string[] = [],
+    modes: Modes = {},
+    additional: Array<string | undefined> = [],
 ):string => [
     styles,
     ...Object.entries(modes)

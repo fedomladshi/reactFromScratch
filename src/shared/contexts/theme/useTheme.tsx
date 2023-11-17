@@ -10,12 +10,12 @@ export const useTheme = (): useThemeResult => {
 
     const toggleTheme = () => {
         const value = theme === AppTheme.DARK ? AppTheme.LIGHT : AppTheme.DARK;
-        setTheme(value);
+        setTheme?.(value);
         setLocalStorageTheme(value);
     };
 
     return {
-        theme,
+        theme: theme || AppTheme.LIGHT,
         toggleTheme,
     };
 };

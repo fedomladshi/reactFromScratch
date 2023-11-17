@@ -13,5 +13,8 @@
   "authorization-form": "Форма авторизации",
   "incorrect-login-creds": "Вы ввели неверный логин и/или пароль",
   "logout": "Выйти",
-  "profile-page": "Профиль"
+  "profile-page": "Профиль",
+  "try-to-reload-page": "Попробуйте обновить страницу",
+  "select-currency": "Укажите валюту",
+  "select-country": "Укажите страну"
 }

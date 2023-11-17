@@ -9,7 +9,7 @@ export function buildWebpackConfig(options : BuildOptions): webpack.Configuratio
     const { mode, paths, isDev } = options;
 
     return {
-        mode: isDev ? 'development' : 'production',
+        mode,
         entry: paths.entry,
         output: {
             filename: '[name].[contenthash].js',

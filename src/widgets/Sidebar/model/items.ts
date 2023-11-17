@@ -8,6 +8,7 @@ import ProfileIcon from 'shared/assets/icons/profile.svg';
 export interface SidebarItemType {
   path: string;
   theme?: AppLinkTheme;
+  authOnly?: boolean;
   text: string;
   Icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
@@ -27,5 +28,6 @@ export const sidebarItemsList: SidebarItemType[] = [
         path: paths.profile,
         Icon: ProfileIcon,
         text: 'profile-page',
+        authOnly: true,
     },
 ];

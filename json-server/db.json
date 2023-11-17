@@ -1,21 +1,33 @@
 {
-    "users": [
-      {"id": "1", "username": "admin", "password": "123"}
-    ],
-     "posts": [
-       { "id": "1", "title": "json-server", "author": "typicode" }
-     ],
-     "comments": [
-       { "id": "1", "body": "some comment", "postId": 1 }
-     ],
-     "profile": {
-     "first": "Алексей",
-     "lastname": "Федорович",
-     "age": 22,
-     "currency": "BYN",
-     "country": "Belarus",
-     "city": "Minsk",
-     "username": "admin",
-     "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
     }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "first": "Алексей",
+    "lastname": "Федоровичч",
+    "age": 22,
+    "currency": "BYN",
+    "country": "Armenia",
+    "city": "Minsk",
+    "username": "admin",
+    "avatar": "https://yt3.ggpht.com/a/AGF-l78E74oF0uUK9bdqvne1Cg1yPAI2Qhl377WW0w=s900-c-k-c0xffffffff-no-rj-mo"
+  }
 }

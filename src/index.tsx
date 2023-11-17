@@ -7,13 +7,13 @@ import 'app/styles/index.scss';
 
 import 'shared/config/i18n/i18n';
 
-const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root')!);
 root.render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <ThemeProvider>
                 <App />
             </ThemeProvider>
-        </BrowserRouter>
-    </StoreProvider>,
+        </StoreProvider>
+    </BrowserRouter>,
 );

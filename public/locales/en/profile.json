@@ -1,3 +1,12 @@
 {
-  "profile-page": "Profile"
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "first-placeholder": "Your name",
+    "secondname-placeholder": "Your lastname",
+    "age-placeholder": "Your age",
+    "currency-placeholder": "Your age",
+    "avatar-placeholder": "Your avatar",
+    "username-placeholder": "Your username",
+    "profile": "Profile",
+    "save": "Save"
 }
