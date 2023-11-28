@@ -1,16 +1,27 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadOnly, ProfileActions, ProfileCard, ProfileReducer,
+    fetchProfileData,
+    getProfileError,
+    getProfileForm,
+    getProfileIsLoading,
+    getProfileReadOnly,
+    getProfileValidateErrors,
+    ProfileActions,
+    ProfileCard,
+    ProfileReducer,
 } from 'entities/Profile';
 import { ReducersList, useDynamicReducerLoader } from 'shared/hooks/useDynamicReducerLoader/useDynamicReducerLoader';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/hooks/useAppSelector/useAppSelector';
+import { Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import cls from './ProfilePage.module.scss';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
-  className?: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -20,12 +31,22 @@ const reducers: ReducersList = {
 const ProfilePage = ({ className }: ProfilePageProps) => {
     useDynamicReducerLoader(reducers, true);
 
+    const { t } = useTranslation('profile');
+
     const dispatch = useAppDispatch();
 
     const form = useAppSelector(getProfileForm);
     const error = useAppSelector(getProfileError);
     const isLoading = useAppSelector(getProfileIsLoading);
     const readOnly = useAppSelector(getProfileReadOnly);
+    const validateErrors = useAppSelector(getProfileValidateErrors);
+
+    const validateErrorTranslates: Record<ValidateProfileError, string> = {
+        INCORRECT_AGE: t('errors.incorrect-age'),
+        INCORRECT_USER_DATA: t('errors.incorrect-user-data'),
+        NO_DATA: t('errors.no-data'),
+        SERVER_ERROR: t('errors.server-error'),
+    };
 
     const onChangeLastname = useCallback((value) => {
         dispatch(ProfileActions.updateProfile({ lastname: value }));
@@ -60,12 +81,17 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     return (
         <div className={classNames(cls.ProfilePage, {}, [className])}>
             <ProfilePageHeader />
+            {validateErrors?.length && validateErrors?.map((error) => (
+                <Text key={error} theme="error" text={validateErrorTranslates[error]} />
+            ))}
             <ProfileCard
                 data={form}
                 isLoading={isLoading}

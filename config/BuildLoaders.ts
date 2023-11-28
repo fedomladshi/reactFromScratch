@@ -15,7 +15,7 @@ export function BuildLoaders(options: BuildOptions): RuleSetRule[] {
             ],
         },
         buildSvgLoader(),
-        buildBabelLoader(),
+        buildBabelLoader(options.isDev),
         {
             test: /\.tsx?$/,
             loader: 'ts-loader',

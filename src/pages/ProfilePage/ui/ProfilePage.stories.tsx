@@ -3,6 +3,7 @@ import { routerDecorator } from 'shared/config/storybook/RouterDecorator/routerD
 import { storeDecorator } from 'shared/config/storybook/StoreDecorator/storeDecorator';
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
 import { AppTheme } from 'shared/contexts/theme';
+import avatar from 'shared/assets/tests/storybook.webp';
 import ProfilePage from './ProfilePage';
 
 const meta = {
@@ -15,16 +16,42 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
+export const Primary: Story = {
     args: {
+
     },
 };
 
-Light.decorators = [storeDecorator({})];
+Primary.decorators = [storeDecorator({
+    profile: {
+        form: {
+            avatar,
+            age: 24,
+            city: 'Minsk',
+            first: 'Alexey',
+            country: 'Belarus',
+            lastname: 'Fedorovich',
+            currency: 'USD',
+        },
+    },
+})];
 
 export const Dark: Story = {
     args: {
+
     },
 };
 
-Dark.decorators = [themeDecorator(AppTheme.DARK), storeDecorator({})];
+Dark.decorators = [themeDecorator(AppTheme.DARK), storeDecorator({
+    profile: {
+        form: {
+            avatar,
+            age: 24,
+            city: 'Minsk',
+            first: 'Alexey',
+            country: 'Belarus',
+            lastname: 'Fedorovich',
+            currency: 'USD',
+        },
+    },
+})];

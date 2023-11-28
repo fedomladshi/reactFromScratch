@@ -8,5 +8,11 @@
     "avatar-placeholder": "Your avatar",
     "username-placeholder": "Your username",
     "profile": "Profile",
-    "save": "Save"
+    "save": "Save",
+    "errors": {
+        "incorrect-age": "Incorrect age",
+        "incorrect-user-data": "Incorrect user data",
+        "no-data": "No data",
+        "server-error": "Server error"
+    }
 }

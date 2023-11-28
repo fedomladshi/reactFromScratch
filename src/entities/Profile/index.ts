@@ -2,6 +2,8 @@ import { fetchProfileData } from './model/services/fetchProfileData/fetchProfile
 import { Profile, ProfileSchema } from './model/types/profile';
 import { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
+export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+
 export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
 
 export { getProfileReadOnly } from './model/selectors/getProfileReadOnly/getProfileReadOnly';

@@ -98,13 +98,6 @@ export const ProfileCard = ({
                         />
                         <Input
                             readOnly={readOnly}
-                            onChange={onChangeCountry}
-                            className={cls.input}
-                            value={data?.country}
-                            placeholder={t('country-placeholder')}
-                        />
-                        <Input
-                            readOnly={readOnly}
                             onChange={onChangeAvatar}
                             className={cls.input}
                             value={data?.avatar}

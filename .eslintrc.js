@@ -30,7 +30,7 @@ module.exports = {
         'react/jsx-indent-props': [2, 4],
         'react/no-unused-prop-types': 'warn',
         indent: [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx', '.json'] }],
+        'react/jsx-filename-extension': [2, { extensions: ['.ts', '.js', '.jsx', '.tsx', '.json'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',

@@ -8,5 +8,11 @@
     "avatar-placeholder": "Ваш аватар",
     "username-placeholder": "Ваш никнейм",
     "profile": "Профиль",
-    "save": "Сохранить"
+    "save": "Сохранить",
+    "errors": {
+        "incorrect-age": "Неправильный возраст",
+        "incorrect-user-data": "Неправильные имя или фамилия",
+        "no-data": "Данных нет",
+        "server-error": "Серверная ошибка"
+    }
 }

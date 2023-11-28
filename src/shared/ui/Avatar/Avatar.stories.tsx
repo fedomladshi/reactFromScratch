@@ -3,7 +3,7 @@ import { routerDecorator } from 'shared/config/storybook/RouterDecorator/routerD
 import { themeDecorator } from 'shared/config/storybook/ThemeDecorator/themeDecorator';
 import { AppTheme } from 'shared/contexts/theme';
 import { Avatar } from './Avatar';
-import AvatarImg from './storybook.webp';
+import AvatarImg from '../../assets/tests/storybook.webp';
 
 import './Avatar.module.scss';
 
